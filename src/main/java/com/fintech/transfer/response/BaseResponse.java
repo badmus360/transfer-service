@@ -1,0 +1,16 @@
+package com.fintech.transfer.response;
+
+import lombok.*;
+
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class BaseResponse<T> {
+    private Boolean flag;
+    private String code;
+    private String message;
+    private T result;
+}

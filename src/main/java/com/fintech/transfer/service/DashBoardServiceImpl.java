@@ -2,6 +2,7 @@ package com.fintech.transfer.service;
 
 import com.fintech.transfer.entity.Account;
 import com.fintech.transfer.repository.AccountRepository;
+import com.fintech.transfer.request.GetAccountRequest;
 import com.fintech.transfer.response.BaseResponse;
 import com.fintech.transfer.response.GetAccountResponse;
 import lombok.RequiredArgsConstructor;
@@ -17,10 +18,8 @@ public class DashBoardServiceImpl implements DashBoardService {
     private final AccountRepository accountRepository;
 
     @Override
-    public BaseResponse<GetAccountResponse> getCustomerAccount() {
-        String subject = SecurityContextHolder.getContext().getAuthentication().getName();
-
-        Account account = accountRepository.findByEmail(subject).orElse(null);
+    public BaseResponse<GetAccountResponse> getCustomerAccount(GetAccountRequest getAccountRequest) {
+        Account account = accountRepository.findByEmail(getAccountRequest.getEmail()).orElse(null);
 
         if (account == null) {
             return BaseResponse.<GetAccountResponse>builder()

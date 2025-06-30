@@ -1,7 +1,6 @@
 package com.fintech.transfer.controller;
 
 import com.fintech.transfer.response.BaseResponse;
-import com.fintech.transfer.response.GetAccountResponse;
 import com.fintech.transfer.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
